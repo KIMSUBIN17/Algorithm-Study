@@ -1,15 +1,15 @@
 #include<stdio.h>
 
 int number = 8;
-int sorted[8];  //Á¤·ÄµÈ °á°ú´ãÀ» ¹è¿­(Á¤·Ä ¹è¿­Àº ¹İµå½Ã Àü¿ªº¯¼ö·Î)
+int sorted[8];  //ì •ë ¬ëœ ê²°ê³¼ë¥¼ ë‹´ì„ ë°°ì—´(ì •ë ¬ ë°°ì—´ì€ ë°˜ë“œì‹œ ì „ì—­ë³€ìˆ˜ë¡œ ì„ ì–¸)
 
-//½ÃÀÛ Áß°£  ³¡ 
-void merge(int a[], int m, int middle, int n ){  ////»õ·Ó°Ô ¸¸µé¾îÁö´Â ¹è
+
+void merge(int a[], int m, int middle, int n ){  //ìƒˆë¡­ê²Œ ë§Œë“¤ì–´ì§€ëŠ” ë°°ì—´
 	int i = m;
 	int j = middle + 1;
-	int k = m;  //i¶û µ¿ÀÏÇÑ À§Ä¡ °¡Áü
+	int k = m;  //ië‘ ë™ì¼í•œ ìœ„ì¹˜ ê°€ì§
 	
-	//ÀÛÀº ¼ø¼­´ë·Î ¹è¿­¿¡ »ğÀÔ
+	//ì‘ì€ ìˆœì„œëŒ€ë¡œ ë°°ì—´ì— ì‚½ì…
 	while(i <= middle  && j <= n){
 		if(a[i] <= a[j]){
 			sorted[k] = a[i];
@@ -20,8 +20,8 @@ void merge(int a[], int m, int middle, int n ){  ////»õ·Ó°Ô ¸¸µé¾îÁö´Â ¹è
 		}
 		k++;
 	} 
-	//³²Àº µ¥ÀÌÅÍµµ »ğÀÔ
-	if(i > middle) {   //i°¡ ¸ÕÀú ³¡³­ °æ¿ì -> ³²Àº j°ª ³Ö¾îÁÖ±â 
+	//ë‚¨ì€ ë°ì´í„°ë„ ì‚½ì…
+	if(i > middle) {   //iê°€ ë¨¼ì € ëë‚œ ê²½ìš° -> ë‚¨ì€ jê°’ ë„£ì–´ì£¼ê¸° 
 		for(int t = j; t <=n; t++){
 			sorted[k] = a[t];
 			k++;
@@ -33,14 +33,14 @@ void merge(int a[], int m, int middle, int n ){  ////»õ·Ó°Ô ¸¸µé¾îÁö´Â ¹è
 			k++;
 		}
 	}
-	//Á¤·ÄµÈ ¹è¿­À» »ğÀÔ 
+	//ì •ë ¬ëœ ë°°ì—´ì„ ì‚½ì… 
 	for(int t = m ; t<= n; t++){
 		a[t] = sorted[t];
 	}
 }
 
 void mergeSort(int a[], int m, int n) {
-	// ÀÌ¿ÜÀÇ °æ¿ì´Â Å©±â°¡ 1°³ÀÎ °æ¿ì 
+	// ì´ì™¸ì˜ ê²½ìš°ëŠ” í¬ê¸°ê°€ 1ê°œì¸ ê²½ìš° 
 	if(m < n) {
 		int middle = (m + n) / 2;
 		mergeSort(a, m, middle);
